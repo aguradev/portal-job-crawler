@@ -28,6 +28,6 @@ body {
 
 @layer components {
   .container-grid {
-    @apply max-w-[800px] mx-auto lg:px-0 px-5 flex justify-between items-center;
+    @apply max-w-[1000px] mx-auto lg:px-0 px-5;
   }
 }
