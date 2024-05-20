@@ -3,12 +3,12 @@ import Footer from "../ui/Footer";
 import { Link } from "react-router-dom";
 import Button from "@element/Button";
 import { LuSun, LuMoon } from "react-icons/lu";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 export default function DefaultLayout({ children }) {
   const [colorTheme, setColorTheme] = useState("light");
 
-  const changeTheme = () => {
+  const changeTheme = useCallback(() => {
     if (
       colorTheme === "light" ||
       localStorage.getItem("color-theme") === "light"
@@ -21,7 +21,7 @@ export default function DefaultLayout({ children }) {
       localStorage.setItem("color-theme", "light");
       setColorTheme("light");
     }
-  };
+  }, [colorTheme]);
 
   useEffect(() => {
     const loadLocalstorageTheme = () => {
@@ -30,13 +30,13 @@ export default function DefaultLayout({ children }) {
         window.matchMedia("(prefers-color-scheme: dark)")
       ) {
         document.body.classList.add("dark");
-        setColorTheme("dark");
       } else if (localStorage.getItem("color-theme") === "dark") {
         document.body.classList.add("dark");
-        setColorTheme("dark");
       } else {
         document.body.classList.remove("dark");
       }
+
+      setColorTheme(localStorage.getItem("color-theme"));
     };
 
     loadLocalstorageTheme();
@@ -44,7 +44,7 @@ export default function DefaultLayout({ children }) {
 
   return (
     <>
-      <div className="relative min-h-screen text-zinc-900 dark:text-zinc-300">
+      <div className="relative text-zinc-900 dark:text-zinc-300">
         <div className="absolute top-0 h-full w-full bg-white z-[-2] dark:bg-zinc-900 bg-[radial-gradient(100%_50%_at_50%_0%,rgba(0,163,255,0.13)_0,rgba(0,163,255,0)_50%,rgba(0,163,255,0)_100%)]"></div>
         <header>
           <Navigation>
@@ -63,7 +63,7 @@ export default function DefaultLayout({ children }) {
           </Navigation>
         </header>
 
-        <main className="py-20 container-grid">{children}</main>
+        <main className="min-h-screen py-20 container-grid">{children}</main>
 
         <Footer />
       </div>
