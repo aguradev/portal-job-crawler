@@ -1,3 +1,4 @@
+import Button from "@/components/element/Button";
 import Stat from "@/components/element/Stat";
 import DefaultLayout from "@/components/layouts/Default";
 import Hero from "@/components/ui/Hero";
@@ -14,20 +15,20 @@ export default function Home() {
     },
     {
       no: 2,
-      company: "Google",
-      position: "Software Engineer",
+      company: "Facebook",
+      position: "Data Engineer",
       references: "linkedin",
     },
     {
       no: 3,
-      company: "Google",
-      position: "Software Engineer",
+      company: "Tokopedia",
+      position: "Backend Engineer Intern",
       references: "linkedin",
     },
     {
       no: 4,
       company: "Google",
-      position: "Software Engineer",
+      position: "Lead Manager",
       references: "linkedin",
     },
     {
@@ -43,10 +44,10 @@ export default function Home() {
       <Hero />
 
       <section className="grid grid-cols-2 gap-5 mb-14 lg:grid-cols-4">
-        <Stat count={3000} category={`Web developer`} />
-        <Stat count={200} category={`Data analysis`} />
-        <Stat count={1500} category={`Devops`} />
-        <Stat count={800} category={`Marketing`} />
+        <Stat count={3000} category={`Software Engineer`} />
+        <Stat count={200} category={`Data Engineer`} />
+        <Stat count={1500} category={`Devops / Infra`} />
+        <Stat count={800} category={`Intern Dev`} />
       </section>
 
       <section className="mb-8 z-[99]">
@@ -54,6 +55,15 @@ export default function Home() {
           headers={["Company", "Position", "References", ""]}
           dataset={latestJobs}
         />
+        <div className="mt-12 text-center">
+          <Button
+            attribute={{ type: "button" }}
+            colorType={`primary`}
+            classBtn={`font-semibold px-8`}
+          >
+            More Job
+          </Button>
+        </div>
       </section>
     </DefaultLayout>
   );

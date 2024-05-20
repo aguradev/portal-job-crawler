@@ -42,12 +42,14 @@ export default function TableDataset({ headers, dataset }) {
                 <ColumnTd>{position}</ColumnTd>
                 <ColumnTd>{references}</ColumnTd>
                 <ColumnTd>
-                  <Link
-                    to={`/`}
-                    className="px-8 py-4 rounded-lg bg-slate-100 dark:bg-zinc-950/30"
-                  >
-                    Apply
-                  </Link>
+                  <div className="text-center">
+                    <Link
+                      to={`/`}
+                      className="px-8 py-4 rounded-lg bg-slate-100 dark:bg-zinc-950/30"
+                    >
+                      Apply
+                    </Link>
+                  </div>
                 </ColumnTd>
               </tr>
             )

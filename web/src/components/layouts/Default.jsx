@@ -44,7 +44,7 @@ export default function DefaultLayout({ children }) {
 
   return (
     <>
-      <div className="relative text-zinc-900 dark:text-zinc-300">
+      <div className="relative min-h-screen text-zinc-900 dark:text-zinc-300">
         <div className="absolute top-0 h-full w-full bg-white z-[-2] dark:bg-zinc-900 bg-[radial-gradient(100%_50%_at_50%_0%,rgba(0,163,255,0.13)_0,rgba(0,163,255,0)_50%,rgba(0,163,255,0)_100%)]"></div>
         <header>
           <Navigation>
@@ -63,7 +63,7 @@ export default function DefaultLayout({ children }) {
           </Navigation>
         </header>
 
-        <main className="container-grid py-14">{children}</main>
+        <main className="py-20 container-grid">{children}</main>
 
         <Footer />
       </div>

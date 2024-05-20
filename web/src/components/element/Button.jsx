@@ -1,8 +1,10 @@
+import PropsType from "prop-types";
 export default function Button({
   attribute,
   children,
   colorType,
   clickHandler,
+  classBtn,
 }) {
   function btnTypeSelected(isType) {
     switch (isType) {
@@ -16,10 +18,18 @@ export default function Button({
   return (
     <button
       {...attribute}
-      className={`p-3 rounded-lg ${btnTypeSelected(colorType)}`}
+      className={`p-3 rounded-lg ${classBtn} ${btnTypeSelected(colorType)}`}
       onClick={clickHandler}
     >
       {children}
     </button>
   );
 }
+
+Button.propTypes = {
+  attribute: PropsType.object,
+  children: PropsType.oneOfType([PropsType.element, PropsType.elementType]),
+  colorType: PropsType.string,
+  clickHandler: PropsType.func,
+  classBtn: PropsType.string,
+};
