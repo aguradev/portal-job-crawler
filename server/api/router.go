@@ -3,8 +3,8 @@ package api
 import (
 	"net/http"
 
-	dto "github.com/aguradev/portal-job-crawler/api/DTO"
 	"github.com/aguradev/portal-job-crawler/api/handlers"
+	res "github.com/aguradev/portal-job-crawler/api/res"
 	"github.com/aguradev/portal-job-crawler/utils"
 	"github.com/go-chi/chi/v5"
 )
@@ -15,7 +15,7 @@ func Router(r *chi.Mux) {
 		utils.JsonHeaderPack(w, r)
 
 		w.WriteHeader(http.StatusOK)
-		w.Write(dto.HandleResponse("Success show greeting", nil))
+		w.Write(res.HandleResponse("Success show greeting", nil))
 	})
 
 	r.Route("/job", func(r chi.Router) {
