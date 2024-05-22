@@ -61,7 +61,7 @@ export default function Home() {
             colorType={`primary`}
             classBtn={`font-semibold px-8`}
           >
-            More Job
+            More
           </Button>
         </div>
       </section>

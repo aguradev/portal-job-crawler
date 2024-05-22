@@ -3,44 +3,12 @@ import Footer from "../ui/Footer";
 import { Link } from "react-router-dom";
 import Button from "@element/Button";
 import { LuSun, LuMoon } from "react-icons/lu";
-import { useCallback, useEffect, useState } from "react";
+import { useContext } from "react";
+import { ThemeProviderContext } from "../context/ThemeContext";
 
 export default function DefaultLayout({ children }) {
-  const [colorTheme, setColorTheme] = useState("light");
-
-  const changeTheme = useCallback(() => {
-    if (
-      colorTheme === "light" ||
-      localStorage.getItem("color-theme") === "light"
-    ) {
-      document.body.classList.add("dark");
-      localStorage.setItem("color-theme", "dark");
-      setColorTheme("dark");
-    } else {
-      document.body.classList.remove("dark");
-      localStorage.setItem("color-theme", "light");
-      setColorTheme("light");
-    }
-  }, [colorTheme]);
-
-  useEffect(() => {
-    const loadLocalstorageTheme = () => {
-      if (
-        !localStorage.getItem("color-theme") &&
-        window.matchMedia("(prefers-color-scheme: dark)")
-      ) {
-        document.body.classList.add("dark");
-      } else if (localStorage.getItem("color-theme") === "dark") {
-        document.body.classList.add("dark");
-      } else {
-        document.body.classList.remove("dark");
-      }
-
-      setColorTheme(localStorage.getItem("color-theme"));
-    };
-
-    loadLocalstorageTheme();
-  }, []);
+  const { themeState, changeTheme } = useContext(ThemeProviderContext);
+  const { theme } = themeState;
 
   return (
     <>
@@ -56,7 +24,7 @@ export default function DefaultLayout({ children }) {
                   attribute={{ type: "button" }}
                   clickHandler={changeTheme}
                 >
-                  {colorTheme === "dark" ? <LuMoon /> : <LuSun />}
+                  {theme === "dark" ? <LuMoon /> : <LuSun />}
                 </Button>
               </div>
             </div>

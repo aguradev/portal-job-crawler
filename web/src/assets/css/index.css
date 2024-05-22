@@ -24,6 +24,14 @@ body {
   p {
     @apply leading-6;
   }
+
+  button {
+    @apply outline-none;
+  }
+
+  a {
+    outline: none;
+  }
 }
 
 @layer components {

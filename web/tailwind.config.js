@@ -4,7 +4,7 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     fontFamily: {
-      redditSans: ["Reddit Sans", "sans serif"],
+      redditSans: ["Reddit Sans", "system-ui", "sans serif"],
     },
   },
   plugins: [],
