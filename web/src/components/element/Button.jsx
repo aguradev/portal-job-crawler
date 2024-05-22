@@ -9,7 +9,7 @@ export default function Button({
   function btnTypeSelected(isType) {
     switch (isType) {
       case "primary":
-        return "bg-blue-500";
+        return "bg-blue-500 text-white";
       default:
         return "bg-slate-100 dark:bg-zinc-950/30 hover:bg-slate-200 dark:hover:bg-zinc-950/80";
     }
