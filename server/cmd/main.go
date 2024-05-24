@@ -5,10 +5,15 @@ import (
 )
 
 func main() {
+	// setup ENV
 	config.LoadEnv()
-	setupBootstrapApp := config.SetEnvConfig()
-	InitServer := config.CreateNewServer()
-	config.NewDatabaseConnect(setupBootstrapApp.DBHost, setupBootstrapApp.DBPort, setupBootstrapApp.DBuser, setupBootstrapApp.DBpass, setupBootstrapApp.DBname)
+	SetupBootstrapApp := config.SetEnvConfig()
 
-	InitServer.Started()
+	// setup server, routing
+	InitServer := config.CreateNewServer()
+
+	// setup database
+	config.NewDatabaseConnect(SetupBootstrapApp.DBHost, SetupBootstrapApp.DBPort, SetupBootstrapApp.DBuser, SetupBootstrapApp.DBpass, SetupBootstrapApp.DBname)
+
+	InitServer.Started(SetupBootstrapApp.Port)
 }

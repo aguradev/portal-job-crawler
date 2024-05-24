@@ -14,7 +14,6 @@ type DatabaseStorage struct {
 
 func NewDatabaseConnect(host string, port int, user string, password string, dbname string) *DatabaseStorage {
 	DBParams := fmt.Sprintf("host=%s port=%d user=%s password=%s dbname=%s sslmode=disable", host, port, user, password, dbname)
-	fmt.Println(DBParams)
 
 	dbConnect, err := sql.Open("postgres", DBParams)
 

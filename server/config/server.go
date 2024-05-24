@@ -10,8 +10,6 @@ import (
 	"github.com/go-chi/cors"
 )
 
-const defaultPortAddr = ":32134"
-
 type Server struct {
 	R *chi.Mux
 }
@@ -34,10 +32,10 @@ func (server *Server) Router() {
 	api.Router(server.R)
 }
 
-func (server *Server) Started() {
+func (server *Server) Started(port string) {
 
 	server.Router()
 
-	log.Printf("server started http://localhost%s\n\n", defaultPortAddr)
-	http.ListenAndServe(defaultPortAddr, server.R)
+	log.Printf("server started http://localhost%s\n\n", port)
+	http.ListenAndServe(port, server.R)
 }
