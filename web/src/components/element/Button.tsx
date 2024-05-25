@@ -1,12 +1,19 @@
-import PropsType from "prop-types";
-export default function Button({
+interface ButtonProps {
+  attribute: object;
+  children: JSX.Element | JSX.Element[] | string;
+  colorType?: string;
+  clickHandler?: () => void;
+  classBtn?: string;
+}
+
+const Button: React.FC<ButtonProps> = ({
   attribute,
   children,
   colorType,
   clickHandler,
   classBtn,
-}) {
-  function btnTypeSelected(isType) {
+}) => {
+  function btnTypeSelected(isType?: string): string {
     switch (isType) {
       case "primary":
         return "bg-blue-500 text-white";
@@ -24,12 +31,6 @@ export default function Button({
       {children}
     </button>
   );
-}
-
-Button.propTypes = {
-  attribute: PropsType.object,
-  children: PropsType.oneOfType([PropsType.element, PropsType.elementType]),
-  colorType: PropsType.string,
-  clickHandler: PropsType.func,
-  classBtn: PropsType.string,
 };
+
+export default Button;
