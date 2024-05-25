@@ -1,6 +1,7 @@
-import PropTypes from "prop-types";
-
-const Heading1 = ({ content, className = null }) => {
+const Heading1: React.FC<{
+  content: string;
+  className?: string;
+}> = ({ content, className }) => {
   return (
     <h1
       className={`text-zinc-800 dark:text-zinc-300 text-6xl mb-5 font-bold ${
@@ -10,11 +11,6 @@ const Heading1 = ({ content, className = null }) => {
       {content}
     </h1>
   );
-};
-
-Heading1.propTypes = {
-  content: PropTypes.string,
-  className: PropTypes.string,
 };
 
 export default Heading1;
