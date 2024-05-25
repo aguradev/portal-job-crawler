@@ -1,6 +1,6 @@
 import Heading1 from "@element/H1";
 
-const Hero = () => {
+const Hero: React.FC = () => {
   return (
     <section className="mb-4 text-center py-14">
       <Heading1 content="Job Crawler" />

@@ -2,9 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "@/assets/css/index.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Home from "./pages/Home.jsx";
-import Overview from "./pages/Overview.jsx";
-import { ThemeProvider } from "./components/context/ThemeContext.jsx";
+import Home from "./pages/Home.tsx";
+import Overview from "./pages/Overview.tsx";
+import { ThemeProvider } from "./components/context/ThemeContext.tsx";
 
 const router = createBrowserRouter([
   {
@@ -17,10 +17,10 @@ const router = createBrowserRouter([
   },
 ]);
 
-ReactDOM.createRoot(document.getElementById("root")).render(
-  <React.StrictMode>
-    <ThemeProvider>
+ReactDOM.createRoot(document.getElementById("root")!).render(
+  <ThemeProvider>
+    <React.StrictMode>
       <RouterProvider router={router} />
-    </ThemeProvider>
-  </React.StrictMode>
+    </React.StrictMode>
+  </ThemeProvider>
 );

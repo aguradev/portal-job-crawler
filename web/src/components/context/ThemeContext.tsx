@@ -1,15 +1,28 @@
 import { createContext, useState, useEffect } from "react";
 
-export const ThemeProviderContext = createContext({
+interface ThemeProviderState {
   themeState: {
-    theme: null,
+    theme: string;
+    setTheme: (color: string) => void;
+  };
+  changeTheme: () => void;
+}
+
+const initialProviderState: ThemeProviderState = {
+  themeState: {
+    theme: "",
     setTheme: () => null,
   },
   changeTheme: () => null,
-});
+};
 
-export function ThemeProvider({ children }) {
-  const [colorTheme, setColorTheme] = useState("light");
+const ThemeProviderContext =
+  createContext<ThemeProviderState>(initialProviderState);
+
+const ThemeProvider: React.FC<{ children: JSX.Element | JSX.Element[] }> = ({
+  children,
+}) => {
+  const [colorTheme, setColorTheme] = useState<string>("light");
 
   const changeTheme = () => {
     if (
@@ -39,13 +52,13 @@ export function ThemeProvider({ children }) {
         document.body.classList.remove("dark");
       }
 
-      setColorTheme(localStorage.getItem("color-theme"));
+      setColorTheme(localStorage.getItem("color-theme")!);
     };
 
     loadLocalstorageTheme();
   }, []);
 
-  const contextValue = {
+  const contextValue: ThemeProviderState = {
     themeState: {
       theme: colorTheme,
       setTheme: (color) => setColorTheme(color),
@@ -58,4 +71,6 @@ export function ThemeProvider({ children }) {
       {children}
     </ThemeProviderContext.Provider>
   );
-}
+};
+
+export { ThemeProviderContext, ThemeProvider };

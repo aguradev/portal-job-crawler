@@ -1,12 +1,13 @@
 import Button from "@/components/element/Button";
 import Stat from "@/components/element/Stat";
 import DefaultLayout from "@/components/layouts/Default";
-import Hero from "@/components/ui/Hero";
+import Hero from "@ui/Hero";
 import TableDataset from "@/components/ui/TableDataset";
 import { useState } from "react";
+import { LatestJobState } from "@/usecases/JobState";
 
 export default function Home() {
-  const [latestJobs, setLatestJob] = useState([
+  const [latestJobs, _] = useState<LatestJobState[]>([
     {
       no: 1,
       company: "Google",
