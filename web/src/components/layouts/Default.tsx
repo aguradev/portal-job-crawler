@@ -1,12 +1,16 @@
 import Navigation from "@ui/Navigation";
-import Footer from "../ui/Footer";
+import Footer from "../ui/Footer.jsx";
 import { Link } from "react-router-dom";
 import Button from "@element/Button";
 import { LuSun, LuMoon } from "react-icons/lu";
 import { useContext } from "react";
-import { ThemeProviderContext } from "../context/ThemeContext.tsx";
+import { ThemeProviderContext } from "@context/ThemeContext.tsx";
 
-export default function DefaultLayout({ children }) {
+interface DefaultLayoutProps {
+  children: JSX.Element | JSX.Element[];
+}
+
+const DefaultLayout: React.FC<DefaultLayoutProps> = ({ children }) => {
   const { themeState, changeTheme } = useContext(ThemeProviderContext);
   const { theme } = themeState;
 
@@ -37,4 +41,6 @@ export default function DefaultLayout({ children }) {
       </div>
     </>
   );
-}
+};
+
+export default DefaultLayout;

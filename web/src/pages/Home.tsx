@@ -6,7 +6,13 @@ import TableDataset from "@/components/ui/TableDataset";
 import { useState } from "react";
 
 export default function Home() {
-  const [latestJobs, setLatestJob] = useState([
+  interface latestJobState {
+    no: number;
+    company: string;
+    position: string;
+    references: string;
+  }
+  const [latestJobs, _] = useState<latestJobState[]>([
     {
       no: 1,
       company: "Google",

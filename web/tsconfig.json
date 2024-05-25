@@ -25,6 +25,7 @@
             "@/*": ["./src/*"],
             "@ui/*": ["./src/components/ui/*"],
             "@element/*": ["./src/components/element/*"],
+            "@context/*": ["./src/components/context/*"]
         }
       },
     "include": [

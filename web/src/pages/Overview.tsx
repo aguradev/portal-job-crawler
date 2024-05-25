@@ -1,5 +1,9 @@
 import DefaultLayout from "@/components/layouts/Default";
 
 export default function Overview() {
-  return <DefaultLayout></DefaultLayout>;
+  return (
+    <DefaultLayout>
+      <h1>Overview</h1>
+    </DefaultLayout>
+  );
 }

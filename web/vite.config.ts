@@ -18,6 +18,10 @@ export default defineConfig({
         find: "@element",
         replacement: path.resolve(__dirname, "src/components/element"),
       },
+      {
+        find: "@context",
+        replacement: path.resolve(__dirname, "src/components/context"),
+      },
     ],
   },
 });
