@@ -1,4 +1,4 @@
-import Heading1 from "@element/H1";
+import Heading1 from "@/components/element/H1";
 
 const Hero: React.FC = () => {
   return (
