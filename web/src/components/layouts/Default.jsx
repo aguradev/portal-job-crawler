@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Button from "@element/Button";
 import { LuSun, LuMoon } from "react-icons/lu";
 import { useContext } from "react";
-import { ThemeProviderContext } from "../context/ThemeContext";
+import { ThemeProviderContext } from "../context/ThemeContext.tsx";
 
 export default function DefaultLayout({ children }) {
   const { themeState, changeTheme } = useContext(ThemeProviderContext);
