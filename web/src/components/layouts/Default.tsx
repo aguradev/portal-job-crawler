@@ -1,5 +1,5 @@
 import Navigation from "@ui/Navigation";
-import Footer from "../ui/Footer.jsx";
+import Footer from "@ui/Footer.tsx";
 import { Link } from "react-router-dom";
 import Button from "@element/Button";
 import { LuSun, LuMoon } from "react-icons/lu";

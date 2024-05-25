@@ -1,6 +1,8 @@
-import PropTypes from "prop-types";
+interface NavigationProps {
+  children: JSX.Element | JSX.Element[];
+}
 
-const Navigation = ({ children }) => {
+const Navigation: React.FC<NavigationProps> = ({ children }) => {
   return (
     <nav className="py-4 border-b border-slate-200 bg-slate-100/40 dark:border-zinc-700/40 backdrop-blur dark:bg-zinc-900/80 z-[99] fixed w-full top-0">
       <div className="flex items-center justify-between container-grid">
@@ -12,10 +14,6 @@ const Navigation = ({ children }) => {
       </div>
     </nav>
   );
-};
-
-Navigation.propTypes = {
-  children: PropTypes.element,
 };
 
 export default Navigation;
