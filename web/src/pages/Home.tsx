@@ -5,13 +5,14 @@ import Hero from "@/components/ui/Hero";
 import TableDataset from "@/components/ui/TableDataset";
 import { useState } from "react";
 
+interface latestJobState {
+  no: number;
+  company: string;
+  position: string;
+  references: string;
+}
+
 export default function Home() {
-  interface latestJobState {
-    no: number;
-    company: string;
-    position: string;
-    references: string;
-  }
   const [latestJobs, _] = useState<latestJobState[]>([
     {
       no: 1,
