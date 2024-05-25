@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import { ChildrenProps } from "@/usecases/childrenProps";
 
 interface TableDatasetProps {
-  headers: [];
+  headers: string[];
   dataset: Array<any>;
 }
 
